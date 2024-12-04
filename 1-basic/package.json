@@ -1,0 +1,17 @@
+{
+  "name": "threejs-learn",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "three": "^0.171.0",
+    "vite": "^6.0.2",
+    "vite-plugin-restart": "^0.4.2"
+  }
+}
