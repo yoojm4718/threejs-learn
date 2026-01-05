@@ -116,8 +116,8 @@ colorTexture.colorSpace = THREE.SRGBColorSpace;
  *   - NearestFilter를 사용하면 제일 큰 텍스쳐를 사용하기 때문에(화질 제일 좋음), mipmapping이 필요 없음
  *     -> generateMipmaps를 false로 설정해서 비활성화, 성능 더 최적화 가능
  */
-colorTexture.minFilter = THREE.NearestFilter;
-colorTexture.generateMipmaps = false;
+// colorTexture.minFilter = THREE.NearestFilter;
+// colorTexture.generateMipmaps = false;
 
 /**
  * 2. Magnification Filter
@@ -126,7 +126,7 @@ colorTexture.generateMipmaps = false;
  *   - 두 가지 값 밖에 없음: LinearFilter랑 NearestFilter
  *   - Nearest Filter를 하면 아주 작은 텍스쳐여도 깨짐 없이 나옴 -> 더 나은 결과물을 위해 이렇게 지정해주는게 좋음
  */
-colorTexture.magFilter = THREE.NearestFilter;
+// colorTexture.magFilter = THREE.NearestFilter;
 
 const alphaTexture = textureLoader.load("/textures/door/alpha.jpg");
 const heightTexture = textureLoader.load("/textures/door/height.jpg");

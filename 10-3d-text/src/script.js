@@ -34,6 +34,10 @@ const textureLoader = new THREE.TextureLoader();
 const matcapTexture = textureLoader.load("/textures/matcaps/8.png");
 matcapTexture.colorSpace = THREE.SRGBColorSpace;
 
+const matcapMaterial = new THREE.MeshMatcapMaterial({
+  matcap: matcapTexture,
+});
+
 /**
  * Fonts
  * - FontLoader로 로딩
@@ -58,9 +62,7 @@ fontLoader.load("/fonts/helvetiker_regular.typeface.json", (font) => {
     bevelOffset: 0,
     bevelSegments: 4,
   });
-  const matcapMaterial = new THREE.MeshMatcapMaterial({
-    matcap: matcapTexture,
-  });
+
   //   matcapMaterial.wireframe = true;
   const text = new THREE.Mesh(textGeometry, matcapMaterial);
 
@@ -100,30 +102,30 @@ fontLoader.load("/fonts/helvetiker_regular.typeface.json", (font) => {
   // textGeometry.center();
 
   scene.add(text);
-
-  // 우리가 랜덤화 하는 것은 donut의 모양이나 geometry가 아니기 때문에,
-  // scene 상의 정보인 mesh를 제외한 geometry나 material은 하나만 사용한다!!
-  // * 매우 중요한 최적화 방식
-  const donutGeometry = new THREE.TorusGeometry(0.3, 0.2, 20, 45);
-  // material도 font와 동일한 material을 사용하기 때문에, 공유해도 됨
-  // const donutMaterial = new THREE.MeshMatcapMaterial({ matcap: matcapTexture });
-
-  for (let i = 0; i < 100; i++) {
-    const donut = new THREE.Mesh(donutGeometry, matcapMaterial);
-
-    donut.position.x = (Math.random() - 0.5) * 10;
-    donut.position.y = (Math.random() - 0.5) * 10;
-    donut.position.z = (Math.random() - 0.5) * 10;
-
-    donut.rotation.x = Math.random() * Math.PI;
-    donut.rotation.y = Math.random() * Math.PI;
-
-    const scale = Math.random();
-    donut.scale.set(scale, scale, scale);
-
-    scene.add(donut);
-  }
 });
+
+// 우리가 랜덤화 하는 것은 donut의 모양이나 geometry가 아니기 때문에,
+// scene 상의 정보인 mesh를 제외한 geometry나 material은 하나만 사용한다!!
+// * 매우 중요한 최적화 방식
+const donutGeometry = new THREE.TorusGeometry(0.3, 0.2, 20, 45);
+// material도 font와 동일한 material을 사용하기 때문에, 공유해도 됨
+// const donutMaterial = new THREE.MeshMatcapMaterial({ matcap: matcapTexture });
+
+for (let i = 0; i < 100; i++) {
+  const donut = new THREE.Mesh(donutGeometry, matcapMaterial);
+
+  donut.position.x = (Math.random() - 0.5) * 10;
+  donut.position.y = (Math.random() - 0.5) * 10;
+  donut.position.z = (Math.random() - 0.5) * 10;
+
+  donut.rotation.x = Math.random() * Math.PI;
+  donut.rotation.y = Math.random() * Math.PI;
+
+  const scale = Math.random();
+  donut.scale.set(scale, scale, scale);
+
+  scene.add(donut);
+}
 
 // /**
 //  * Object
