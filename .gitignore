@@ -2,3 +2,4 @@ node_modules/
 dist/
 */*.blend
 */*.blend1
+24-environment-map/static
