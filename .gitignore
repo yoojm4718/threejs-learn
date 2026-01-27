@@ -4,3 +4,4 @@ dist/
 */*.blend1
 24-environment-map/static
 25-realistic-render/static
+47-intro-and-loading-progress/static
