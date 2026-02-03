@@ -13,8 +13,8 @@ import * as THREE from "three";
 import { useRef } from "react";
 
 export default function Experience() {
-  const cubeRef = useRef<THREE.Mesh>(null);
-  const sphereRef = useRef<THREE.Mesh>(null);
+  const cubeRef = useRef<THREE.Mesh>(null!);
+  const sphereRef = useRef<THREE.Mesh>(null!);
 
   return (
     <>

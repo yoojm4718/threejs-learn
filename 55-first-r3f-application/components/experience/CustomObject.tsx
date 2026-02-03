@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 
 export default function CustomObject() {
-  const geometryRef = useRef<THREE.BufferGeometry>(null);
+  const geometryRef = useRef<THREE.BufferGeometry>(null!);
 
   const verticesCount = 10 * 3;
 
@@ -16,7 +16,7 @@ export default function CustomObject() {
   }, []);
 
   useEffect(() => {
-    geometryRef.current?.computeVertexNormals();
+    geometryRef.current.computeVertexNormals();
   }, []);
 
   return (

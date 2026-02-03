@@ -6,19 +6,21 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import CustomObject from "./CustomObject";
 
-extend({ OrbitControls });
+class OC extends OrbitControls {}
+
+const OrbitControlsComponent = extend(OC);
 
 export default function Experience() {
-  const cubeRef = useRef<THREE.Mesh>(null);
-  const groupRef = useRef<THREE.Group>(null);
+  const cubeRef = useRef<THREE.Mesh>(null!);
+  const groupRef = useRef<THREE.Group>(null!);
 
   const { camera, gl } = useThree();
 
   useFrame((state, delta) => {
     const elapsedTime = state.clock.getElapsedTime();
 
-    if (cubeRef.current) cubeRef.current.rotation.y = elapsedTime;
-    if (groupRef.current) groupRef.current.rotation.y = elapsedTime;
+    cubeRef.current.rotation.y = elapsedTime;
+    groupRef.current.rotation.y = elapsedTime;
 
     // state.camera.position.x = Math.sin(elapsedTime) * 8;
     // state.camera.position.z = Math.cos(elapsedTime) * 8;
@@ -27,7 +29,7 @@ export default function Experience() {
 
   return (
     <>
-      <orbitControls args={[camera, gl.domElement]} />
+      <OrbitControlsComponent args={[camera, gl.domElement]} />
 
       <directionalLight position={[1, 2, 3]} intensity={4.5} />
       <ambientLight intensity={1.5} />
