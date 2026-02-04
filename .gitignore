@@ -6,3 +6,5 @@ dist/
 25-realistic-render/static
 47-intro-and-loading-progress/static
 48-mixing-html-and-webgl/static
+59-load-models/public/Fox
+59-load-models/public/FlightHelmet
