@@ -1,8 +1,16 @@
-import { Stage } from "@react-three/drei";
+import { OrbitControls, Stage } from "@react-three/drei";
+import { useControls } from "leva";
+import { Perf } from "r3f-perf";
 
 export default function Experience() {
+  useControls({ test: 1 });
+
   return (
     <>
+      <Perf position="top-left" />
+
+      <OrbitControls makeDefault />
+
       <Stage
         shadows={{
           type: "contact",
